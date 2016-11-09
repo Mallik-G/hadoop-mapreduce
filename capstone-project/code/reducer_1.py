@@ -14,19 +14,15 @@ for line in sys.stdin:
 
     thisKey, thisHour =  data_mapped
 
-    # new user so it is time to print the old
-    # user's highest-posting hour(s)
+    # new user so it is time to print the old user's highest-posting hour(s)
     if oldKey and oldKey != thisKey:
-        # the hours this user posted and how many
-        # posts that user posted for that hour
+        # the hours this user posted and how many posts for that hour
         hourList = hourString.split(",")
-        #print hourList
         for hour in hourList:
             if hour in counter_dict:
                 counter_dict[hour] += 1
             else:
                 counter_dict[hour] = 1
-        # find the maximum posts per hour
         max_count = max(counter_dict.values())
         # print the hours the maximum posts per hour occurred
         for hour, count in counter_dict.iteritems():
@@ -46,16 +42,13 @@ for line in sys.stdin:
 
 # print the last line
 if oldKey != None:
-   # print oldKey, "\t", hourString
-    # the hours this user posted and how many
-    # posts that user posted for that hour
+    # the hours this user posted and how many posts for that hour
     hourList = hourString.split(",")
     for hour in hourList:
         if hour in counter_dict:
             counter_dict[hour] += 1
         else:
             counter_dict[hour] = 1
-        # find the maximum posts per hour
     max_count = max(counter_dict.values())
     # print the hours the maximum posts per hour occurred
     for hour, count in counter_dict.iteritems():
